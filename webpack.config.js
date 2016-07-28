@@ -1,4 +1,4 @@
-var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     devtool: 'inline-sourcemap',
@@ -15,7 +15,10 @@ module.exports = {
                 loader: 'style-loader!css-loader'
             },
         ]
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin([{ from: './assets', to: './assets' }])
+    ]
 };
 
 // npm i -D style-loader css-loader
